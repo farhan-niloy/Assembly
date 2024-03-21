@@ -19,11 +19,11 @@ Start:
 MemLoop:
     sta $0,X     ; Store the value of A inside the memory adress $0 + X
     dex          ; X--
-    bne          ; Loop until X is equal to zero (z-flag is set)
+    bne MemLoop  ; Loop until X is equal to zero (z-flag is set)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Fill the ROM size to exactly 4KB
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     org $FFFC
-    .word start  ; Reset vector at $FFFC (where the program starts)
-    .word start  ; Interrupt vector at $FFFC (unused in the VCS) 
+    .word Start  ; Reset vector at $FFFC (where the program starts)
+    .word Start  ; Interrupt vector at $FFFC (unused in the VCS) 
